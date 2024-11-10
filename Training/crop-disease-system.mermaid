@@ -1,0 +1,26 @@
+flowchart TD
+    A[Mobile/Web Interface] --> B[Image Upload]
+    B --> C[Image Preprocessing]
+    C --> D[ML Model Inference]
+    D --> E[Disease Detection]
+    E --> F[Results Display]
+    
+    subgraph Backend
+    G[Flask/FastAPI Server]
+    H[(Database)]
+    I[Model Storage]
+    end
+    
+    subgraph ML Pipeline
+    J[Data Collection]
+    K[Data Preprocessing]
+    L[Model Training]
+    M[Model Evaluation]
+    end
+    
+    J --> K
+    K --> L
+    L --> M
+    M --> I
+    G --- H
+    G --- I
